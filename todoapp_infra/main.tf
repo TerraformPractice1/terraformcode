@@ -4,6 +4,12 @@ module "resource_group" {
   resource_group_location = "centralindia"
 }
 
+module "resource_group_merge" {
+  source                  = "../Module/azurerm_resource_group"
+  resource_group_name     = "todo_app_merge"
+  resource_group_location = "centralindia"
+}
+
 # module "virtual_network_location" {
 #   depends_on = [ module.resource_group ]
 #   source                   = "../Module/azurerm_virtual_network"
