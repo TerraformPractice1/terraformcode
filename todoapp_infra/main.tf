@@ -10,6 +10,7 @@ module "resource_group_101" {
   resource_group_location = "eastus"
 }
 
+
 module "resource_group_102" {
   source                  = "../Module/azurerm_resource_group"
   resource_group_name     = "todo_app_102"
@@ -119,28 +120,28 @@ module "resource_group_102" {
 #   resource_group_name     = "todo_app"
 # }
 
-module "azurerm_key_vault" {
-  depends_on          = [module.resource_group]
-  source              = "../Module/azurerm_keyvault"
-  keyvault_name       = "mykey2903121"
-  location            = "centralindia"
-  resource_group_name = "todo_app"
-}
+# module "azurerm_key_vault" {
+#   depends_on          = [module.resource_group]
+#   source              = "../Module/azurerm_keyvault"
+#   keyvault_name       = "mykey2903121"
+#   location            = "centralindia"
+#   resource_group_name = "todo_app"
+# }
 
-module "username" {
-  depends_on          = [module.resource_group, module.azurerm_key_vault]
-  source              = "../Module/azurerm_keyvault_secret"
-  keyvault_name       = "mykey2903121"
-  resource_group_name = "todo_app"
-  secret_name         = "username"
-  secret_value        = "devadmin"
-}
+# module "username" {
+#   depends_on          = [module.resource_group, module.azurerm_key_vault]
+#   source              = "../Module/azurerm_keyvault_secret"
+#   keyvault_name       = "mykey2903121"
+#   resource_group_name = "todo_app"
+#   secret_name         = "username"
+#   secret_value        = "devadmin"
+# }
 
-module "admin_password" {
-  depends_on          = [module.resource_group, module.azurerm_key_vault]
-  source              = "../Module/azurerm_keyvault_secret"
-  keyvault_name       = "mykey2903121"
-  resource_group_name = "todo_app"
-  secret_name         = "password"
-  secret_value        = "devops@12345"
-}
+# module "admin_password" {
+#   depends_on          = [module.resource_group, module.azurerm_key_vault]
+#   source              = "../Module/azurerm_keyvault_secret"
+#   keyvault_name       = "mykey2903121"
+#   resource_group_name = "todo_app"
+#   secret_name         = "password"
+#   secret_value        = "devops@12345"
+# }
